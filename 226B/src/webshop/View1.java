@@ -46,9 +46,5 @@ public class View1 {
 		window.setVisible( true );
 	}
 
-	public static void main(String[] args)
-	{
-		new View1();
-	}
 }
 
