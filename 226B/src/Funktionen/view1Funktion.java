@@ -1,6 +1,6 @@
 package Funktionen;
 
-import webshop.View1;
+import webshop.Login;
 
 public class view1Funktion {
 	
@@ -9,6 +9,6 @@ public class view1Funktion {
 	}
 	public static void main(String[] args)
 	{
-		new View1();
+		new Login();
 	}	
 }
