@@ -1,6 +1,8 @@
 package webshop;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -11,86 +13,133 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class View5() {
+public class View5 {
 	
-	public View5{
-	// Frame
-	JFrame window = new JFrame("Produktauswahl");
-	window.setSize(720, 540);
-	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	window.setLayout(new BorderLayout());
+	public View5(){
+		// Frame
+				JFrame window = new JFrame("Produktauswahl");
+				window.setSize(1080, 720);
+				window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				window.setLayout(new BorderLayout());
 
-	try {
-		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-	} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InstantiationException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IllegalAccessException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (UnsupportedLookAndFeelException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedLookAndFeelException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-	// Panels
-	JPanel produkt = new JPanel();
-	produkt.setLayout(new GridLayout(4, 4));
-	JPanel suche = new JPanel();
-	suche.setLayout(new BorderLayout());
-	JPanel index = new JPanel();
-	index.setLayout(new BorderLayout());
-	JPanel indexBottom = new JPanel(new GridLayout());
-	JPanel indexTop = new JPanel(new GridLayout());
+				window.setLocationRelativeTo(null);
+				window.setVisible(true);
 
-	// Labels
-	JLabel mashtech = new JLabel("Mashtech ");
-	JLabel leer = new JLabel(" ");
-	
-	// Textfields
-	JTextField search = new JTextField();
+				// Panels
+				JPanel produkt = new JPanel();
+				produkt.setLayout(new BorderLayout(0, 30));
+				JPanel produktTop = new JPanel();
+				produktTop.setLayout(new GridLayout(6, 8, 20, 5));
+				JPanel produktBottom = new JPanel();
+				produktBottom.setLayout(null);
+				JPanel suche = new JPanel();
+				suche.setLayout(new BorderLayout());
+				JPanel index = new JPanel(new GridLayout(7, 1, 20, 5));
+				JPanel suchleer = new JPanel();
 
-	// Buttons
-	
-	// links
-	JLabel link1 = new JLabel("Mashtech ");
-	JLabel link2 = new JLabel("Beliebt ");
-	JLabel link3 = new JLabel("Neuheiten ");
-	JLabel link4 = new JLabel("Mashtech ");
-	JLabel link5 = new JLabel("Beliebt ");
-	JLabel link6 = new JLabel("Neuheiten ");
+				// Labels
+				JLabel mashtech = new JLabel("Mashtech ");
+				JLabel danke = new JLabel("Danke für Ihren einkauf");
+				JLabel tag = new JLabel("Wir wünschen Ihnen einen schönen Tag");
+				JLabel topKat = new JLabel("Top Kategorien ");
+				JLabel leer = new JLabel(" ");
+				JLabel leer1 = new JLabel(" ");
+				JLabel leer2 = new JLabel(" ");
+				JLabel leer3 = new JLabel(" ");
+				JLabel leer4 = new JLabel(" ");
+				JLabel leer5 = new JLabel(" ");
+				JLabel leer6 = new JLabel(" ");
 
-	// JFrame add
-	window.add(produkt, BorderLayout.CENTER);
-	window.add(suche, BorderLayout.NORTH);
-	window.add(index, BorderLayout.WEST);
+				// Textfields
+				JTextField search = new JTextField();
+				
+				// Buttons
+				JButton einkaufen = new JButton("Weiter einkaufen");
+				
+				// links
+				JLabel link1 = new JLabel("Link 1 ");
+				JLabel link2 = new JLabel("Link 2 ");
+				JLabel link3 = new JLabel("Link 3 ");
+				JLabel link4 = new JLabel("Link 4 ");
+				JLabel link5 = new JLabel("Link 5 ");
+				JLabel link6 = new JLabel("Link 6 ");
 
-	// JPanel add
+				// images
+				
+				
+				// Fonts
+				Font mashtec1 = new Font("SansSerif", Font.BOLD,40);
+				Font danke1 = new Font("SansSerif", Font.BOLD, 40);
+				Font tag1 = new Font("SansSerif", Font.BOLD, 24);
+				
 
-	suche.add(leer, BorderLayout.EAST);
-	suche.add(search, BorderLayout.CENTER);
-	suche.add(mashtech, BorderLayout.WEST);
+				// JFrame add
+				window.add(produkt, BorderLayout.CENTER);
+				window.add(suche, BorderLayout.NORTH);
+				window.add(index, BorderLayout.WEST);
 
-	index.add(indexTop);
-	index.add(indexBottom);
-	indexBottom.add(topKat);
-	indexTop.add(link1);
-	indexTop.add(link2);
-	indexTop.add(link3);
-	indexBottom.add(link4);
-	indexBottom.add(link5);
-	indexBottom.add(link6);
-	
-	window.setVisible(true);
-}
-	
+				// JPanel add
+
+				produkt.add(produktBottom, BorderLayout.CENTER);
+				produkt.add(produktTop, BorderLayout.NORTH);
+							
+				produktTop.add(danke);
+				produktTop.add(tag);
+				produktTop.add(leer1);
+				produktTop.add(leer2);
+				produktTop.add(leer3);
+				
+				
+				produktBottom.add(einkaufen);
+				
+				suche.add(suchleer, BorderLayout.EAST);
+				suche.add(search, BorderLayout.CENTER);
+				suche.add(mashtech, BorderLayout.WEST);
+
+				index.add(link1);
+				index.add(link2);
+				index.add(link3);
+				index.add(topKat);
+				index.add(link4);
+				index.add(link5);
+				index.add(link6);
+
+				window.setVisible(true);
+
+				// customization
+				mashtech.setFont(mashtec1);
+				danke.setFont(danke1);
+				tag.setFont(tag1);
+				produktTop.setPreferredSize(new Dimension(10, 350));
+				suchleer.setPreferredSize(new Dimension(200, 10));
+				index.setPreferredSize(new Dimension(200, 10));
+				mashtech.setPreferredSize(new Dimension(300, 80));
+				einkaufen.setSize(250, 30);
+				einkaufen.setLocation(70, 30);
+			}
+
 
 public static void main(String[] args) {
 	View5 view5 = new View5();
 }
+}
+
 
 
 

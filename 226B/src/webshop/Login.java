@@ -3,48 +3,60 @@ package webshop;
 import java.awt.GridLayout;
 
 import javax.swing.*;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 public class Login {
-	public void buildGui()
-	{
-		JFrame window = new JFrame("View1");
-				window.setSize(450,120);
-		 		window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+	public Login() {
+		JFrame logon = new JFrame("View1");
+		logon.setSize(450, 120);
+		logon.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-			  	//Layout
-			  	window.setLayout( new GridLayout(/*3*/ 0, 3, 6, 3) );
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
 
-			  	//Labels
-			  	JLabel userName = new JLabel("Benutzername: ");
-			  	JLabel password = new JLabel("Passwort: ");
-			  	JLabel leerzeile = new JLabel();
-			  	JLabel leerzeile2 = new JLabel();
+		//Panel
+		JPanel main = new JPanel();
+		logon.add(main);
+		
+		// Layout
+		logon.setLayout(new GridLayout(/* 3 */ 0, 1, 20, 5));
+		main.setLayout(new GridLayout(/* 3 */ 0, 2, 20, 5));
 
-			  	//Textfields
-			  	JTextField txtUserName = new JTextField();
-			  	JPasswordField txtPassword = new JPasswordField();
+		// Labels
+		JLabel userName = new JLabel("Benutzername: ");
+		JLabel password = new JLabel("Passwort: ");
+		JLabel leerzeile = new JLabel();
+		JLabel leerzeile2 = new JLabel();
 
-			  	//Buttons
-			  	JButton btnLogin = new JButton("Anmelden");
-			  	JButton btnCancel = new JButton("Abbrechen");
+		// Textfields
+		JTextField txtUserName = new JTextField();
+		JPasswordField txtPassword = new JPasswordField();
 
-			  	//Nachname:
-			  	window.add(leerzeile);
-			  	window.add(userName);
-			  	window.add(txtUserName);
-			  	window.add(password);
-			  	window.add(txtPassword);
-			  	window.add(leerzeile2);
-			  	window.add(btnLogin);
-			  	window.add(btnCancel);
+		// Buttons
+		JButton btnLogin = new JButton("Anmelden");
+		JButton btnCancel = new JButton("Abbrechen");
 
+		// Nachname:
+		main.add(userName);
+		main.add(txtUserName);
+		main.add(password);
+		main.add(txtPassword);
+		main.add(btnLogin);
+		main.add(btnCancel);
 
-		window.setVisible( true );
+		logon.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		Login login = new Login();
 	}
 
 }
-
