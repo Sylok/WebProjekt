@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,11 +16,15 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class View4 {
+public class View4 extends JFrame implements ActionListener{
+	
+	private JFrame window;
+	private JButton back, kaufen, aendern;
+	private ArrayList waren;
 	
 	public View4(){
-		// Frame
-				JFrame window = new JFrame("Produktauswahl");
+				// Frame
+				 window = new JFrame("Warenkorb");
 				window.setSize(1080, 720);
 				window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				window.setLayout(new BorderLayout());
@@ -25,16 +32,12 @@ public class View4 {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (UnsupportedLookAndFeelException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -45,7 +48,7 @@ public class View4 {
 				JPanel produkt = new JPanel();
 				produkt.setLayout(new BorderLayout(0, 30));
 				JPanel produktTop = new JPanel();
-				produktTop.setLayout(new GridLayout(2, 4, 20, 5));
+				produktTop.setLayout(null);
 				JPanel produktBottom = new JPanel();
 				produktBottom.setLayout(null);
 				JPanel suche = new JPanel();
@@ -70,10 +73,15 @@ public class View4 {
 				JTextField search = new JTextField();
 				
 				// Buttons
-				JButton kaufen = new JButton("Produkte Kaufen");
-				JButton aendern = new JButton("Zahlungsmethode Ändern");
-				JButton back = new JButton("<--");
-
+				kaufen = new JButton("Produkte Kaufen");
+				kaufen.addActionListener(this);
+				aendern = new JButton("Zahlungsmethode Ändern");
+				aendern.addActionListener(this);
+				back = new JButton("<");
+				back.addActionListener(this);
+				
+				// Array
+				ArrayList<String> al=new ArrayList<String>();
 				
 				// links
 				JLabel link1 = new JLabel("Link 1 ");
@@ -135,13 +143,25 @@ public class View4 {
 				kaufen.setLocation(70, 30);
 				aendern.setSize(250, 30);
 				aendern.setLocation(350, 30);
-				back.setPreferredSize(new Dimension(25, 25));
-			
+				back.setSize(40, 40);
+				back.setLocation(25, 25);
+				warenkorb.setSize(400, 40);
+				warenkorb.setLocation(75, 75);
 			}
 
 
-public static void main(String[] args) {
-	View4 view4 = new View4();
+@Override
+public void actionPerformed(ActionEvent e) {
+	if(e.getSource()==this.back){
+		View2 view2 = new View2();
+		window.setVisible(false);
+	}
+	
+	if(e.getSource()==this.kaufen){
+		View5 view5 = new View5();
+		window.setVisible(false);
+	}
+	
 }
 }
 

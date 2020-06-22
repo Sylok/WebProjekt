@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,11 +15,15 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class View5 {
+public class View5 extends JFrame implements ActionListener {
+	
+	private JFrame window;
+	JButton einkaufen;
+	
 	
 	public View5(){
 		// Frame
-				JFrame window = new JFrame("Produktauswahl");
+				window = new JFrame("Danke");
 				window.setSize(1080, 720);
 				window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				window.setLayout(new BorderLayout());
@@ -70,7 +76,8 @@ public class View5 {
 				JTextField search = new JTextField();
 				
 				// Buttons
-				JButton einkaufen = new JButton("Weiter einkaufen");
+				einkaufen = new JButton("Weiter einkaufen");
+				einkaufen.addActionListener(this);
 				
 				// links
 				JLabel link1 = new JLabel("Link 1 ");
@@ -134,9 +141,12 @@ public class View5 {
 				einkaufen.setLocation(70, 30);
 			}
 
-
-public static void main(String[] args) {
-	View5 view5 = new View5();
+@Override
+public void actionPerformed(ActionEvent e) {
+	if(e.getSource()==this.einkaufen){
+		View2 view2 = new View2();
+		window.setVisible(false);
+	}
 }
 }
 

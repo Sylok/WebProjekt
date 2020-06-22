@@ -1,6 +1,8 @@
 package webshop;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
 
@@ -8,13 +10,16 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.applet.Applet;
 
-public class View2 {
+public class View2 extends JFrame implements ActionListener{
 
+	private JFrame window;
 	private Image image;
     private ImageObserver imageObserver;
+    private JButton produkt1, produkt2, produkt3, produkt4, produkt5, produkt6, produkt7, produkt8;
+    
 	public View2() {
 		// Frame
-		JFrame window = new JFrame("Produktauswahl");
+		window = new JFrame("Produktauswahl");
 		window.setSize(1080, 720);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLayout(new BorderLayout());
@@ -22,21 +27,17 @@ public class View2 {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		window.setLocationRelativeTo(null);
-		window.setVisible(true);
+		
 
 		// Panels
 		JPanel produkt = new JPanel();
@@ -67,14 +68,23 @@ public class View2 {
 		JTextField search = new JTextField();
 		
 		// Buttons
-		JButton produkt1 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\4201.jpg")*/);
-		JButton produkt2 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\21661D2-250x250.png")*/);
-		JButton produkt3 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\game-immortal-unchained.jpg")*/);
-		JButton produkt4 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\GSPad-250x250.png")*/);
-		JButton produkt5 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\intex-hamburger-island.jpg")*/);
-		JButton produkt6 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\PS5_RENDER_GROUP_WITHNOTICE_01.jpg")*/);
-		JButton produkt7 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\yu-gi-oh-destiny-board-traveler.jpg")*/);
-		JButton produkt8 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\figuren-paladone-game-p.jpg")*/);
+		produkt1 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\4201.jpg")*/);
+		produkt2 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\21661D2-250x250.png")*/);
+		produkt3 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\game-immortal-unchained.jpg")*/);
+		produkt4 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\GSPad-250x250.png")*/);
+		produkt5 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\intex-hamburger-island.jpg")*/);
+		produkt6 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\PS5_RENDER_GROUP_WITHNOTICE_01.jpg")*/);
+		produkt7 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\yu-gi-oh-destiny-board-traveler.jpg")*/);
+		produkt8 = new JButton(/*new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\figuren-paladone-game-p.jpg")*/);
+		
+		produkt1.addActionListener(this);
+		produkt2.addActionListener(this);
+		produkt3.addActionListener(this);
+		produkt4.addActionListener(this);
+		produkt5.addActionListener(this);
+		produkt6.addActionListener(this);
+		produkt7.addActionListener(this);
+		produkt8.addActionListener(this);
 
 		// links
 		JLabel link1 = new JLabel("Link 1 ");
@@ -148,9 +158,52 @@ public class View2 {
 		 produkt6.setMargin(new Insets(50, 50, 50, 50));
 		 produkt7.setMargin(new Insets(50, 50, 50, 50));
 		 produkt8.setMargin(new Insets(50, 50, 50, 50));*/
+		
+		window.setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		View2 view2 = new View2();
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==this.produkt1){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt2){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt3){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt4){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt5){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt6){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt7){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
+		
+		if(e.getSource()==this.produkt8){
+			View3 view3 = new View3();
+			window.setVisible(false);
+		}
 	}
 }

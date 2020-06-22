@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,12 +16,14 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class View3 {
-
+public class View3 extends JFrame implements ActionListener {
+	
+	private JFrame window;
+	private JButton warenkorb;
 	public View3() {
 
 		// Frame
-		JFrame window = new JFrame("Produktauswahl");
+		window = new JFrame("Ansicht");
 		window.setSize(1080, 720);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLayout(new BorderLayout());
@@ -68,7 +72,8 @@ public class View3 {
 		JTextField search = new JTextField();
 		
 		// Buttons
-		JButton warenkorb = new JButton("Warenkorb");
+		warenkorb = new JButton("Warenkorb");
+		warenkorb.addActionListener(this);
 		JButton image = new JButton(new ImageIcon("C:\\Users\\kaela\\Desktop\\Java Images\\4201.jpg"));
 		
 		// links
@@ -127,8 +132,14 @@ public class View3 {
 		Preis.setLocation(482, 253);
 	}
 
-	public static void main(String[] args) {
-		View3 view3 = new View3();
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==this.warenkorb){
+			View4 view2 = new View4();
+			window.setVisible(false);
+		}
+		
 	}
 
 
